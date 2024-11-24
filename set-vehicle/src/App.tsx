@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import YearSelect from "./components/YearSelect";
 import MakeSelect from "./components/MakeSelect";
 import ModelSelect from "./components/ModelSelect";
-import { Select } from "antd";
+import TextSetYourVehicle from "./components/TextSetYourVehicle";
+import { Select, Space } from "antd";
 
 const App: React.FC = () => {
   const [selectedYear, setSelectedYear] = useState<number | undefined>(
@@ -32,13 +33,18 @@ const App: React.FC = () => {
 
   return (
     <div className="App" style={{ padding: "20px" }}>
-      <h1>SET YOUR VEHICLE</h1>
-      <div style={{ display: "flex", marginBottom: "20px" }}>
+      <Space>
+        <TextSetYourVehicle />
+
         <YearSelect year={selectedYear} onYearChange={handleYearChange} />
         <MakeSelect year={selectedYear} onMakeChange={handleMakeChange} />
         <ModelSelect make={selectedMake} onModelChange={handleModelChange} />
-        <Select placeholder="4 | Engine" disabled />
-      </div>
+        <Select
+          style={{ width: 200, height: 50 }}
+          placeholder="4 | Engine"
+          disabled
+        />
+      </Space>
 
       {selectedYear && selectedMake && selectedModel && (
         <p>

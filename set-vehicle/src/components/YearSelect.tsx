@@ -20,7 +20,7 @@ const YearSelect: React.FC<YearSelectProps> = ({ year, onYearChange }) => {
       placeholder="1 | Year"
       value={year}
       onChange={onYearChange}
-      style={{ width: 200 }}
+      style={{ width: 200, height: 50 }}
     >
       {years.map((year) => (
         <Option value={year}>{year}</Option>

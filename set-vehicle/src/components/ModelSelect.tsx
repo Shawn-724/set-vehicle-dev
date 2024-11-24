@@ -54,7 +54,7 @@ const ModelSelect: React.FC<ModelSelectProps> = ({ make, onModelChange }) => {
       placeholder="3 | Model"
       value={selectedModel}
       onChange={handleModelChange}
-      style={{ width: 200 }}
+      style={{ width: 200, height: 50 }}
       disabled={!make}
     >
       {modelList.map((model) => (
