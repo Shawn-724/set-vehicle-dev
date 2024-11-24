@@ -32,8 +32,16 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App" style={{ padding: "20px" }}>
-      <Space>
+    <div
+      className="App"
+      style={{
+        padding: "20px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <Space size={15}>
         <TextSetYourVehicle />
 
         <YearSelect year={selectedYear} onYearChange={handleYearChange} />
@@ -47,7 +55,7 @@ const App: React.FC = () => {
       </Space>
 
       {selectedYear && selectedMake && selectedModel && (
-        <p>
+        <p style={{ fontSize: "20px" }}>
           You've selected {selectedYear} {selectedMake} {selectedModel}.
         </p>
       )}
