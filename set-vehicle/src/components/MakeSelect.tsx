@@ -14,7 +14,6 @@ const MakeSelect: React.FC<MakeSelectProps> = ({ year, onMakeChange }) => {
   const [selectedMake, setSelectedMake] = useState<string | undefined>(
     undefined
   );
-  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (!year) {
@@ -37,9 +36,6 @@ const MakeSelect: React.FC<MakeSelectProps> = ({ year, onMakeChange }) => {
         ) as string[];
         setMakeList(makeNames);
         setSelectedMake(undefined);
-        // if (!selectedMake) {
-        //   setIsOpen(true);
-        // }
       })
       .catch((error) => {
         console.error("Error fetching makes:", error);
@@ -47,26 +43,17 @@ const MakeSelect: React.FC<MakeSelectProps> = ({ year, onMakeChange }) => {
       });
   }, [year]);
 
-  // useEffect(() => {
-  //   if (!selectedMake) {
-  //     setIsOpen(true);
-  //   }
-  // }, [selectedMake]);
-
   const handleMakeChange = (value: string | undefined) => {
     setSelectedMake(value);
     onMakeChange(value);
-    setIsOpen(false);
   };
 
   return (
     <Select
-      open={isOpen}
       showSearch
       placeholder="2 | Make"
       value={selectedMake}
       onChange={handleMakeChange}
-      onDropdownVisibleChange={(open) => setIsOpen(open)}
       style={{ width: 200, height: 50 }}
       disabled={!year}
     >

@@ -48,7 +48,7 @@ const App: React.FC = () => {
 
       {selectedYear && selectedMake && selectedModel && (
         <p>
-          You've selected {selectedYear} {selectedMake} {selectedModel}
+          You've selected {selectedYear} {selectedMake} {selectedModel}.
         </p>
       )}
     </div>
