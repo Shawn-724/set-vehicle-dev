@@ -43,22 +43,20 @@ const ModelSelect: React.FC<ModelSelectProps> = ({ make, onModelChange }) => {
       });
   }, [make]);
 
-  const handleModelChange = (value: string | undefined) => {
-    setSelectedModel(value);
-    onModelChange(value);
-  };
-
   return (
     <Select
       showSearch
       placeholder="3 | Model"
+      onSelect={(value) => setSelectedModel(value)}
       value={selectedModel}
-      onChange={handleModelChange}
+      onChange={onModelChange}
       style={{ width: 200, height: 50 }}
       disabled={!make}
     >
-      {modelList.map((model) => (
-        <Option value={model}>{model}</Option>
+      {modelList.map((item) => (
+        <Option key={item} value={item}>
+          {item}
+        </Option>
       ))}
     </Select>
   );

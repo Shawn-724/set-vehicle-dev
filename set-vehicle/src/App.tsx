@@ -44,7 +44,7 @@ const App: React.FC = () => {
       <Space size={15}>
         <TextSetYourVehicle />
 
-        <YearSelect year={selectedYear} onYearChange={handleYearChange} />
+        <YearSelect onYearChange={handleYearChange} />
         <MakeSelect year={selectedYear} onMakeChange={handleMakeChange} />
         <ModelSelect make={selectedMake} onModelChange={handleModelChange} />
         <Select

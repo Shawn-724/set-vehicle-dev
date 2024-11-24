@@ -43,22 +43,20 @@ const MakeSelect: React.FC<MakeSelectProps> = ({ year, onMakeChange }) => {
       });
   }, [year]);
 
-  const handleMakeChange = (value: string | undefined) => {
-    setSelectedMake(value);
-    onMakeChange(value);
-  };
-
   return (
     <Select
       showSearch
       placeholder="2 | Make"
+      onSelect={(value) => setSelectedMake(value)}
       value={selectedMake}
-      onChange={handleMakeChange}
+      onChange={onMakeChange}
       style={{ width: 200, height: 50 }}
       disabled={!year}
     >
-      {makeList.map((make) => (
-        <Option value={make}>{make}</Option>
+      {makeList.map((item) => (
+        <Option key={item} value={item}>
+          {item}
+        </Option>
       ))}
     </Select>
   );
