@@ -27,13 +27,13 @@ const ModelSelect: React.FC<ModelSelectProps> = ({ make, onModelChange }) => {
     axios
       .get(url)
       .then((response) => {
-        const modelNames = Array.from(
-          new Set(
+        const modelNames = [
+          ...new Set(
             response.data.Results.map(
               (item: { Model_Name: string }) => item.Model_Name
             )
-          )
-        ) as string[];
+          ),
+        ] as string[];
         setmodelList(modelNames);
         setSelectedModel(undefined);
       })

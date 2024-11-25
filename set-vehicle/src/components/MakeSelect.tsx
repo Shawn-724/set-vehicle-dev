@@ -27,16 +27,17 @@ const MakeSelect: React.FC<MakeSelectProps> = ({ year, onMakeChange }) => {
     axios
       .get(url)
       .then((response) => {
-        const makeNames = Array.from(
-          new Set(
+        const makeNames = [
+          ...new Set(
             response.data.Results.map(
               (item: { MakeName: string }) => item.MakeName
             )
-          )
-        ) as string[];
+          ),
+        ] as string[];
         setMakeList(makeNames);
         setSelectedMake(undefined);
       })
+
       .catch((error) => {
         console.error("Error fetching makes:", error);
         setMakeList([]);
