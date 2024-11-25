@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Select } from "antd";
 import axios from "axios";
+import "../styles/Select.css";
 
 const { Option } = Select;
 
@@ -45,12 +46,12 @@ const ModelSelect: React.FC<ModelSelectProps> = ({ make, onModelChange }) => {
 
   return (
     <Select
+      className="select"
       showSearch
       placeholder="3 | Model"
       onSelect={(value) => setSelectedModel(value)}
       value={selectedModel}
       onChange={onModelChange}
-      style={{ width: 200, height: 50 }}
       disabled={!make}
     >
       {modelList.map((item) => (

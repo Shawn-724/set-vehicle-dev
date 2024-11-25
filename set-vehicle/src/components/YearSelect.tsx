@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Select } from "antd";
+import "../styles/Select.css";
 
 const { Option } = Select;
 
@@ -18,12 +19,12 @@ const YearSelect: React.FC<YearSelectProps> = ({ onYearChange }) => {
 
   return (
     <Select
+      className="select"
       showSearch
       placeholder="1 | Year"
       onSelect={(value) => setSelectedYear(value)}
       value={selectedYear}
       onChange={onYearChange}
-      style={{ width: 200, height: 50 }}
     >
       {years.map((item) => (
         <Option key={item} value={item}>
